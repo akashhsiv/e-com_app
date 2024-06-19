@@ -36,5 +36,5 @@ class Order(HashModel):
 async def create(request:Request):   #id,quantity
     body = await request.json()
 
-    req = requests.get('http://localhost:8000/products/%s'  %body['id'])
+    req = requests.get(f'http://localhost:8000/products/{body["id"]}')
     return req.json()
