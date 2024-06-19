@@ -1,8 +1,17 @@
 
 from fastapi  import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection, HashModel
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['http://localhost:3000'],
+    allow_methods=['*'],
+    allow_headers=['*']
+)
+
 
 redis = get_redis_connection(
     host="redis-19840.c13.us-east-1-3.ec2.redns.redis-cloud.com:",
@@ -11,7 +20,7 @@ redis = get_redis_connection(
     decode_responses=True
 )
 
-class product(HashModel):
+class Product(HashModel):
     name: str
     price: float
     quantity: int
@@ -22,4 +31,8 @@ class product(HashModel):
 
 @app.get('/products')
 def all():
-    return[]
+    return Product.all_pks()
+
+@app.post('/products')
+def create(product:Product):
+    return product.save()
