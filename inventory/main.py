@@ -14,7 +14,7 @@ app.add_middleware(
 
 
 redis = get_redis_connection(
-    host="redis-19840.c13.us-east-1-3.ec2.redns.redis-cloud.com:",
+    host="redis-19840.c13.us-east-1-3.ec2.redns.redis-cloud.com",
     port=19840,
     password="VJoPm7tEdLxfZXZNtH3gB7dwA7CX2H7d",
     decode_responses=True
@@ -25,13 +25,23 @@ class Product(HashModel):
     price: float
     quantity: int
 
-    class meta:
+    class Meta:
         database = redis
 
 
 @app.get('/products')
 def all():
-    return Product.all_pks()
+    return [format(pk) for pk in Product.all_pks()]
+
+def format(pk: str):
+    product= Product.get(pk)
+
+    return {
+        'id':product.pk,
+        'name':product.name,
+        'price':product.price,
+        'quantity':product.quantity
+    }
 
 @app.post('/products')
 def create(product:Product):
