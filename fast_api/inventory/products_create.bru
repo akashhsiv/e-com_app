@@ -6,6 +6,14 @@ meta {
 
 post {
   url: http://0.0.0.0:8000/products
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "name": "hats",
+    "price": 10,
+    "quantity": 80
+  }
 }
