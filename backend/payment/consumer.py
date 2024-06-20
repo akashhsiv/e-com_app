@@ -19,7 +19,7 @@ while True:
                 obj = result[1][0][1]
                 print(obj['pk'])
                 order = Order.get(obj['pk'])
-                order.status ='refunded'
+                order.status ='refund_completed'
                 order.save()
 
     
