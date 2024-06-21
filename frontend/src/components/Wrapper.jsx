@@ -63,9 +63,7 @@ export const Wrapper = props => {
                       aria-current="page"
                       href="#"
                     >
-                      <svg class="bi">
-                        <use xlink:href="#house-fill" />
-                      </svg>
+                    
                       PRODUCTS
                     </a>
                   </li>

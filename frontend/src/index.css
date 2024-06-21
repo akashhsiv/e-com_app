@@ -23,14 +23,26 @@
 .sidebar {
   position: sticky;
   top: 0;
+  display:flex;
+  /* align-items: center; */
+  justify-content: center;
   height: 100vh; /* Full height of viewport */
   background-color: #f8f9fa; /* Sidebar background color */
   border-right: 1px solid #dee2e6; /* Border on the right */
 }
 
 .sidebar .nav-link {
-  font-size: .575rem;
+  display:flex;
+  text-align: center;
+  /* align-items: center; */
+  justify-content: center;
+  font-size: medium;
   font-weight: 500;
+}
+
+.sidebar .nav-item {
+text-align: center;
+justify-content: center;
 }
 
 .sidebar .nav-link.active {
