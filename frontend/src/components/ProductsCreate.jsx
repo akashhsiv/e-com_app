@@ -6,6 +6,7 @@ export const ProductsCreate = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [image_url, setImage_url] = useState("");
   const navigate = useNavigate();
 
   const submit = async (e) => {
@@ -18,6 +19,7 @@ export const ProductsCreate = () => {
         name,
         price,
         quantity,
+        image_url
       }),
     });
     await navigate(-1);
@@ -52,6 +54,15 @@ export const ProductsCreate = () => {
             onChange={(e) => setQuantity(e.target.value)}
           />
           <label htmlFor="quantity">Quantity</label>
+        </div>
+        <div className="form-floating pb-3">
+          <input
+            className="form-control"
+            placeholder="Image_url"
+            id="image_url"
+            onChange={(e) => setImage_url(e.target.value)}
+          />
+          <label htmlFor="image_url">Image_url</label>
         </div>
         <button className="w-100 btn btn-lg btn-primary" type="submit">
           Submit

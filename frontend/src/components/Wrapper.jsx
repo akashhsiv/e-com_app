@@ -61,12 +61,22 @@ export const Wrapper = props => {
                     <a
                       class="nav-link d-flex align-items-center gap-2 active"
                       aria-current="page"
-                      href="#"
+                      href="/"
                     >
                     
                       PRODUCTS
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link d-flex align-items-center gap-2 active"
+                      aria-current="page"
+                      href="/inventory"
+                    >
+                    
+                      INVENTORY
+                    </a>
+                    </li>
                 </ul>
               </div>
             </div>

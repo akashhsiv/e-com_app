@@ -1,5 +1,6 @@
 
 from fastapi  import FastAPI
+# from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection, HashModel
 
@@ -24,6 +25,7 @@ class Product(HashModel):
     name: str
     price: float
     quantity: int
+    image_url: str = None
 
     class Meta:
         database = redis
@@ -40,7 +42,8 @@ def format(pk: str):
         'id':product.pk,
         'name':product.name,
         'price':product.price,
-        'quantity':product.quantity
+        'quantity':product.quantity,
+        'image_url':product.image_url
     }
 
 @app.post('/products')

@@ -5,6 +5,7 @@ import { Products } from "./components/Products";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { ProductsCreate } from "./components/ProductsCreate";
 import { Orders } from "./components/Orders";
+import { Inventory } from "./components/Inventory";
 
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
     <Routes>
         <Route path="/" element={<Products/>} />
         <Route path="/create" element={<ProductsCreate/>}/>
-        <Route path="/orders" element={<Orders/>}/>
-
+        <Route path="/orders/:id" element={<Orders/>}/>
+        <Route path="/inventory" element={<Inventory/>}/>
     </Routes>
     </BrowserRouter>
  }
